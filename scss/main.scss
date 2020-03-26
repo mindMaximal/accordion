@@ -1,0 +1,184 @@
+@import "vars";
+@import "fonts";
+
+::placeholder {
+	color: #666;
+}
+
+::selection {
+	background-color: $accent;
+	color: #fff;
+}
+
+body {
+	font-size: 16px;
+	min-width: 320px;
+	position: relative;
+	line-height: 1.65;
+	font-family: $default-font;
+	overflow-x: hidden;
+	color: $text;
+	input, textarea {
+		border: #666 1px solid;
+		outline: none;
+		&:focus:required:invalid {
+			border-color: red;
+		}
+		&:required:valid {
+			border-color: green;
+		}
+	}
+}
+
+.flex {
+	display: flex;
+
+	&--space-between {
+		justify-content: space-between;
+	}
+
+	&--align-center {
+		align-items: center;
+	}
+}
+
+.container {
+	max-width: 1200px;
+	padding: 0 50px;
+	margin: auto;
+}
+
+@media (max-width: 768px) {
+	.container {
+		padding: 0 15px;
+	}
+}
+
+.main {
+
+	&__title {
+		text-align: center;
+		margin-bottom: 50px;
+		margin-top: 30px;
+	}
+}
+
+.font {
+
+	&--bold {
+		font-weight: bold;
+	}
+}
+
+.accordion {
+	
+
+	&__item {
+		border: 1px solid #cccccc;
+		border-radius: 5px;
+		padding: 20px 30px 15px 20px;
+		box-shadow: 0 0 10px rgba(20,57,96, 0.10);
+		margin-bottom: 15px;
+
+		&--open {
+			
+			.accordion {
+
+				&__number {
+					background-color: #5fbfcd;
+				}
+
+				&__arrow {
+
+					svg {
+						fill: #2d59cf;
+					}
+				}
+			}
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	&__title {
+		margin: 0;
+		text-align: left;
+		width: 100%;
+		font-size: 1.1em;
+	}
+
+	&__number {
+		width: 25px;
+		height: 25px;
+		background-color: #bdbdbd;
+		border-radius: 50%;
+		text-align: center;
+		color: #ffffff;
+		font-size: 0.875em;
+		margin-right: 10px;
+		flex-shrink: 0;
+		transition: 0.2s;
+	}
+
+	&__content {
+		transition: 0.5s;
+		overflow: hidden;
+		height: auto;
+		max-height: 0;
+	}
+
+	&__wrapper {
+		padding: 20px 30px 20px 36px;
+	}
+
+	&__subtitle {
+		font-weight: bold;
+		font-size: 1em;
+	}
+
+	&__arrow {
+		height: 20px;
+
+		svg {
+			transition: 0.3s;
+		}
+	}
+
+	&__box {
+		cursor: pointer;
+	}
+}
+
+@media (max-width: 768px) {
+	.accordion {
+		
+		&__item {
+			padding: 15px;
+		}
+
+		&__wrapper {
+			padding: 15px 0;
+		}
+	}
+}
+
+.list {
+	padding-left: 0;
+
+	&__elem {
+		position: relative;
+		list-style-type: none;
+		padding-left: 25px;
+		margin-bottom: 3px;
+
+		&::before {
+			content: url('../img/tick.png');
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}
